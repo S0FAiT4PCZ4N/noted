@@ -9,7 +9,7 @@ fn main() {
     let path = Path::new("C:\\ProgramData\\Noted\\notes.ntd");
     let display = path.display();
 
-    if args[1] == "l" {
+    if args.len() == 1 || args[1] == "l" {
         let mut file = match File::open(&path) {
             Err(_) => match File::create(path) {
                 Err(why) => panic!("Couldn't create file {}: {}", display, why),
